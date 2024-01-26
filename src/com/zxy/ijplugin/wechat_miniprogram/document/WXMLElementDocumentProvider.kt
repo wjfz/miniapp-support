@@ -75,11 +75,11 @@
 
 package com.zxy.ijplugin.wechat_miniprogram.document
 
-import com.intellij.codeInsight.documentation.DocumentationManager.ORIGINAL_ELEMENT_KEY
 import com.intellij.codeInsight.documentation.DocumentationManagerProtocol.PSI_ELEMENT_PROTOCOL
 import com.intellij.json.psi.JsonStringLiteral
 import com.intellij.lang.documentation.DocumentationMarkup.*
 import com.intellij.lang.documentation.DocumentationProvider
+import com.intellij.openapi.util.Key
 import com.intellij.psi.PsiElement
 import com.intellij.psi.PsiManager
 import com.intellij.psi.impl.smartPointers.SmartPointerManagerImpl
@@ -108,7 +108,10 @@ class WXMLElementDocumentProvider : DocumentationProvider {
         return "Element <code>${wxmlElementDescription.name}</code> ${wxmlElementDescription.description ?: ""}"
     }
 
-    override fun getUrlFor(element: PsiElement, originalElement: PsiElement?): MutableList<String> {
+    override fun getUrlFor(element: PsiElement?, originalElement: PsiElement?): MutableList<String>? {
+        if (element==null){
+            return null
+        }
         if (isInsideJsonConfigFile(element)) {
             if (element.parent?.parent?.parent == element.containingFile) {
                 val wxmlElementDescription = originalElement?.let(::getDescription)
@@ -203,7 +206,7 @@ class WXMLElementDocumentProvider : DocumentationProvider {
 
                 // 将打开一个内存中的元素的文档
                 definedElement?.putUserData(
-                    ORIGINAL_ELEMENT_KEY, SmartPointerManagerImpl.createPointer(
+                    Key.create("Original element"), SmartPointerManagerImpl.createPointer(
                         WXMLElementFactory.createAttributeName(element.project, attributeName, tagName)
                     )
                 )
