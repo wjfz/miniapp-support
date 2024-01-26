@@ -75,7 +75,6 @@
     <id>com.zxy.ijplugin.wechat-miniprogram</id>
     <name>Wechat mini program support</name>
     <vendor url="https://gitee.com/zxy_c/wechat-miniprogram-plugin">ZXY</vendor>
-    <xi:include href="intents.xml" xpointer="xpointer(/idea-plugin/*)"/>
     <xi:include href="wxml.xml" xpointer="xpointer(/idea-plugin/*)"/>
     <xi:include href="wxss.xml" xpointer="xpointer(/idea-plugin/*)"/>
 
@@ -107,7 +106,7 @@
 
     <extensions defaultExtensionNs="com.intellij">
         <!--suppress PluginXmlCapitalization -->
-        <notificationGroup displayType="balloon"
+        <notificationGroup displayType="BALLOON"
                            id="com.zxy.ijplugin.wechat_miniprogram.plugin.UpdateInfoActivity"
                            key="groupId"
                            isLogByDefault="false"
