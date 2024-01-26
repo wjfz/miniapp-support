@@ -79,6 +79,9 @@ import com.intellij.openapi.vfs.VfsUtil
 import com.intellij.util.ResourceUtil
 import com.intellij.webcore.libraries.ScriptingLibraryModel
 
+/**
+ * @see "C:\Users\25446\Projects\wechat-miniprogram-plugin\resources\library"
+ */
 class MyJSPredefinedLibraryProvider : JSPredefinedLibraryProvider() {
 
     companion object {
