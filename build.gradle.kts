@@ -99,11 +99,13 @@ tasks {
         untilBuild.set("233.*")
         val changeNotes = """
 <ul lang="cn">
-    <li> 兼容2022.3 </li>
+    <li> 兼容2023.3 </li>
+    <li> 很抱歉，之前很长一段时间没有维护，我会继续维护这个项目，如果大家有想法，也可以提交pull request，一起维护，对于插件开发的问题，也可以一起探讨 </li>
 </ul>
 <br/>
 <ul lang="en">
-    <li> Compatible with 2022.3 </li>
+    <li> Compatible with 2023.3 </li>
+    <li> I'm sorry, there was no maintenance for a long time, I will continue to maintain this project, if you have ideas, you can also submit a pull request, maintain together, for plugin development, you can also discuss together </li>
 </ul>
 """
         val pluginDescription = """
