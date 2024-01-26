@@ -73,12 +73,12 @@
 
 fun properties(key: String) = project.findProperty(key).toString()
 plugins {
-    id("org.jetbrains.intellij") version "1.10.0"
+    id("org.jetbrains.intellij") version "1.16.1"
     java
-    id("org.jetbrains.kotlin.jvm") version "1.7.21"
+    id("org.jetbrains.kotlin.jvm") version "1.9.22"
 }
 
-version = "3.5.15"
+version = "3.5.16"
 
 tasks {
     withType<JavaCompile> {
@@ -88,15 +88,15 @@ tasks {
     withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
         kotlinOptions {
             jvmTarget = "17"
-            freeCompilerArgs = freeCompilerArgs + "-Xjvm-default=enable"
+            freeCompilerArgs = freeCompilerArgs + "-Xjvm-default=all-compatibility"
         }
     }
     publishPlugin {
         token.set(System.getenv("TOKEN"))
     }
     patchPluginXml {
-        sinceBuild.set("223")
-        untilBuild.set("223.*")
+        sinceBuild.set("233")
+        untilBuild.set("233.*")
         val changeNotes = """
 <ul lang="cn">
     <li> 兼容2022.3 </li>
@@ -163,11 +163,11 @@ sourceSets {
 
 intellij {
     type.set("IU")
-    version.set("2022.3")
+    version.set("2023.3")
     pluginName.set("wechat mini program")
     downloadSources.set(true)
     updateSinceUntilBuild.set(false)
-    plugins.set(listOf("JavaScript", "com.intellij.css", "less", "sass", "org.jetbrains.plugins.stylus:223.7571.203"))
+    plugins.set(listOf("JavaScript", "com.intellij.css", "less", "sass", "org.jetbrains.plugins.stylus:233.11799.172"))
 }
 
 repositories {

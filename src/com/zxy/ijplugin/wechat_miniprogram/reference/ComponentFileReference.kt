@@ -102,9 +102,8 @@ class ComponentFileReference(
         componentFileReferenceSet,
         range, index, text
 ) {
-
     override fun innerResolveInContext(
-            text: String, context: PsiFileSystemItem, result: MutableCollection<ResolveResult>, caseSensitive: Boolean
+            text: String, context: PsiFileSystemItem, result: MutableCollection<in ResolveResult>, caseSensitive: Boolean
     ) {
         super.innerResolveInContext(text, context, result, caseSensitive)
         val isFirst = index == 0
