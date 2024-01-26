@@ -111,11 +111,15 @@ fun isWechatMiniProgramContext(project: Project, strict: Boolean = true): Boolea
             return !strict || runReadAction {
                 // 读取文件内容
                 val gson = Gson()
-                val configs = gson.fromJson<Map<String, Any>>(
+                val configs = try {
+                    gson.fromJson<Map<String, Any>>(
                         VfsUtil.loadText(projectConfigJsonFile),
                         object : TypeToken<Map<String, Any>>() {}.type
-                )
-                configs["compileType"] == "miniprogram"
+                    )
+                } catch (e:Exception) {
+                    null
+                }
+                configs?.get("compileType") == "miniprogram"
             }
         }
     }
@@ -148,7 +152,7 @@ fun findProjectConfigJsonFile(project: Project): JsonFile? {
 
 fun Project.isQQContext(): Boolean {
     return MyProjectSettings.getState(
-            this
+        this
     ).miniprogramType === MiniProgramType.QQ
 }
 
