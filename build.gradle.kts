@@ -95,17 +95,15 @@ tasks {
         token.set(System.getenv("TOKEN"))
     }
     patchPluginXml {
-        sinceBuild.set("233")
-        untilBuild.set("233.*")
+        sinceBuild.set("241")
+        untilBuild.set("241.*")
         val changeNotes = """
 <ul lang="cn">
-    <li> 兼容2023.3 </li>
-    <li> 很抱歉，之前很长一段时间没有维护，我会继续维护这个项目，如果大家有想法，也可以提交pull request，一起维护，对于插件开发的问题，也可以一起探讨 </li>
+    <li> 兼容2024.1 </li>
 </ul>
 <br/>
 <ul lang="en">
-    <li> Compatible with 2023.3 </li>
-    <li> I'm sorry, there was no maintenance for a long time, I will continue to maintain this project, if you have ideas, you can also submit a pull request, maintain together, for plugin development, you can also discuss together </li>
+    <li> Compatible with 2024.1 </li>
 </ul>
 """
         val pluginDescription = """
@@ -165,11 +163,11 @@ sourceSets {
 
 intellij {
     type.set("IU")
-    version.set("2023.3")
+    version.set("2024.1")
     pluginName.set("wechat mini program")
     downloadSources.set(true)
     updateSinceUntilBuild.set(false)
-    plugins.set(listOf("JavaScript", "com.intellij.css", "less", "sass", "org.jetbrains.plugins.stylus:233.11799.172"))
+    plugins.set(listOf("JavaScript", "com.intellij.css", "less", "sass", "org.jetbrains.plugins.stylus:241.14494.140"))
 }
 
 repositories {
